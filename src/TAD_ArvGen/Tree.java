@@ -17,9 +17,9 @@ public interface Tree<E>  extends Iterable<E> {
 
     public E replace(Position<E> v, E e) throws InvalidPositionException;
 
-    public TreePosition<E> root() throws EmptyTreeException;
+    public Position<E> root() throws EmptyTreeException;
 
-    public TreePosition<E> parent(Position<E> v) throws InvalidPositionException, BoundaryViolationException;
+    public Position<E> parent(Position<E> v) throws InvalidPositionException, BoundaryViolationException;
 
     public Iterable<Position<E>> children(Position<E> v) throws InvalidPositionException;
 
