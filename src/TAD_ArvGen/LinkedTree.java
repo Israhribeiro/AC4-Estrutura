@@ -153,6 +153,34 @@ public class LinkedTree<E> implements Tree<E> {
         }
         return s;
     }
+    public double depth(LinkedTree<E> T, Position<E> v){
+        if (isRoot(v)){
+            return 0;
+        }else{
+            return 1 + depth(T,parent(v));
+        }
+    }
+    public double height1(LinkedTree<E> T){
+        double h = 0;
+        for(Position<E> v : T.positions()){
+            if(isExternal(v)){
+                h = Math.max(h,depth(T,v));
+            }
+        }
+        return h;
+    }
+    public double height2(LinkedTree<E> T, Position<E> v){
+        double h;
+        if(isExternal(v)){
+            return 0;
+        }else{
+            h = 0;
+            for(Position<E> w : children(v)){
+                h = Math.max(h,height2(T,w));
+            }
+            return 1 + h;
+        }
+    }
 
 }
 
