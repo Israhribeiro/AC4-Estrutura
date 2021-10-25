@@ -1,13 +1,12 @@
 package TAD_ArvGen;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
+import position.NodePositionList;
 import position.Position;
 import position.PositionList;
-import position.NodePositionList;
-import position.PositionList;
+
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class LinkedTreeTest {
     @Test
@@ -16,8 +15,9 @@ class LinkedTreeTest {
         Position<Position<String>> p, s;
         PositionList<Position<String>> filhos;
         LinkedTree<String> T = criarArvoreT();
-        //System.out.println(T.parentheticRepresentation(T, T.root()));
-        //System.out.println(T.toStringPostorder(T, T.root()));
+        System.out.println(T);
+        System.out.println(T.parentheticRepresentation(T, T.root()));
+        System.out.println(T.toStringPostorder(T, T.root()));
 
         assertFalse(T.isEmpty());
         //assertEquals(4, T.height1(T), "Altura da Árvore T");

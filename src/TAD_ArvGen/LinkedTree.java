@@ -1,13 +1,14 @@
 package TAD_ArvGen;
 
-import java.util.Iterator;
 import exceptions.BoundaryViolationException;
 import exceptions.EmptyTreeException;
 import exceptions.InvalidPositionException;
 import exceptions.NonEmptyTreeException;
-import position.Position;
 import position.NodePositionList;
+import position.Position;
 import position.PositionList;
+
+import java.util.Iterator;
 
 
 public class LinkedTree<E> implements Tree<E> {
@@ -107,6 +108,21 @@ public class LinkedTree<E> implements Tree<E> {
         pos.addLast(v);
         for (Position<E> w : children(v)) preorderPositions(w, pos);
     }
+    public String toStringPostorder(LinkedTree<E> T,Position<E> v){
+        String s = "";
+      for(Position<E> w : children(v)){
+          if(T.isInternal(w)){
+             s +=  toStringPostorder(T,w);
+
+          }else{
+              s += "\n" + w.element().toString();
+          }
+         }
+      s += "\n"+ v.element().toString();
+        return s ;
+    }
+
+
 
     public String toString() {
         return toString(this);
@@ -121,6 +137,23 @@ public class LinkedTree<E> implements Tree<E> {
         s = (s.length() == 0 ? s : s.substring(2));
         return "[" + s + "]";
     }
+    public String parentheticRepresentation (Tree<E> T, Position<E> v) {
+        String s = v.element().toString();
+        if (T.isInternal(v)) {
+            Boolean firstTime = true;
+            for (Position<E> w : T.children(v)) {
+                if (firstTime) {
+                    s += "(\n" + parentheticRepresentation(T, w);
+                } else {
+                    s += "," + parentheticRepresentation(T, w);
+                }
+                s += ")";
+            }
+
+        }
+        return s;
+    }
+
 }
 
 
