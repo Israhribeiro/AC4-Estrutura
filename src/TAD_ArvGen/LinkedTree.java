@@ -122,8 +122,6 @@ public class LinkedTree<E> implements Tree<E> {
         return s ;
     }
 
-
-
     public String toString() {
         return toString(this);
     }
@@ -169,6 +167,7 @@ public class LinkedTree<E> implements Tree<E> {
         }
         return h;
     }
+
     public double height2(LinkedTree<E> T, Position<E> v){
         double h;
         if(isExternal(v)){
@@ -181,6 +180,20 @@ public class LinkedTree<E> implements Tree<E> {
             return 1 + h;
         }
     }
+
+    public int diskSpace(LinkedTree<DiscNode> T, TreePosition<DiscNode> v) {
+        int s = v.element().getKbytes();
+        for (Position<DiscNode> w : v.getChildren()) {
+
+            s += diskSpace(T, (TreePosition<DiscNode>)w);
+        }
+        if (T.isInternal(v)) {
+
+            System.out.println(v.getElement().getName() + ": " + s);
+        }
+        return s;
+    }
+
 
 }
 

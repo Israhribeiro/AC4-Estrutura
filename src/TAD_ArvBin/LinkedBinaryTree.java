@@ -1,7 +1,10 @@
 package TAD_ArvBin;
 
 import java.util.Iterator;
+import java.util.List;
 
+import TAD_ArvGen.LinkedTree;
+import TAD_Pilha.NodeStack;
 import exceptions.BoundaryViolationException;
 import exceptions.EmptyTreeException;
 import exceptions.InvalidPositionException;
@@ -208,6 +211,144 @@ public class LinkedBinaryTree<E> implements BinaryTree<E> {
         BTPosition<E> vv = checkPosition(v);
         return (vv.getRight() != null);
     }
+
+    public LinkedBinaryTree<E> buildExpression(String E){
+        NodeStack<LinkedBinaryTree> S = new NodeStack<LinkedBinaryTree>();
+        char[] e = E.toCharArray();
+        for (int i = 0; i < E.length(); i++) {
+            if(e[i] != '(' && e[i] != ')'){
+                LinkedBinaryTree T = new LinkedBinaryTree();
+                T.addRoot(e[i]);
+                S.push(T);
+            }else if(e[i] == '('){
+                continue;
+            }else{
+                LinkedBinaryTree T2 = S.pop();
+                LinkedBinaryTree T = S.pop();
+                LinkedBinaryTree T1 = S.pop();
+                T.attach(T.root(),T1,T2);
+                S.push(T);
+            }
+        }
+        return S.pop();
+    }
+
+    public void binaryPreOrder(LinkedBinaryTree T,BTPosition v){
+        BTPosition u = v.getLeft();
+        BTPosition w = v.getRight();
+        System.out.print(v.element());
+        if(u != null){
+            binaryPreOrder(T,u);
+        }
+        if(w != null){
+            binaryPreOrder(T,u);
+        }
+    }
+
+    public void binaryPosOrder(LinkedBinaryTree T,BTPosition v){
+        BTPosition u = v.getLeft();
+        BTPosition w = v.getRight();
+        if(u != null){
+            binaryPreOrder(T,u);
+        }
+        if(w != null){
+            binaryPreOrder(T,u);
+        }
+        System.out.print(v.element());
+    }
+
+    public float evaluateExpression(LinkedBinaryTree<Character> T,BTPosition<Character> v){
+        if(T.isInternal(v)){
+            Character o = v.element();
+            float x = evaluateExpression(T,(BTPosition) T.left(v));
+            float y = evaluateExpression(T,(BTPosition) T.right(v));
+            switch (o){
+                case '+':
+                    return x + y;
+                case '-':
+                    return x - y;
+                case '/':
+                    return x / y;
+                case '*':
+                    return x * y;
+            }
+        }
+        return Float.parseFloat(String.valueOf(v.element()));
+    }
+
+    public void inorder(LinkedBinaryTree T,BTPosition v){
+        BTPosition u = v.getLeft();
+        BTPosition w = v.getRight();
+        if(u != null) {
+            inorder(T, u);
+        }
+        System.out.print(v.element());
+        if(w != null){
+            inorder(T,w);
+        }
+    }
+
+    public void eulerTour(LinkedBinaryTree T,BTPosition v){
+        BTPosition u = v.getLeft();
+        BTPosition w = v.getRight();
+        System.out.print(v.element());
+        if(u != null) {
+            eulerTour(T, u);
+        }
+        System.out.print(v.element());
+        if(w != null){
+            eulerTour(T,w);
+        }
+        System.out.print(v.element());
+    }
+
+    public void printExpression(LinkedBinaryTree T,BTPosition v){
+        if(T.isInternal(v)) {
+            //imprimir “(”
+            System.out.print("(");
+        }
+        if(T.hasLeft(v)){
+            printExpression(T,(BTPosition) T.left(v));
+        }
+        if(T.isInternal(v)){
+            System.out.print(v.element());
+            //imprimir o operador armazenado em v
+        }
+        else{
+            System.out.print(v.element());
+            //imprimir o valor armazenado em v
+        }
+        if(T.hasRight(v)){
+            printExpression(T,(BTPosition) T.right(v));
+        }
+        if(T.isInternal(v)) {
+            //imprimir “)”
+            System.out.print(")");
+        }
+    }
+
+    public double depth(LinkedBinaryTree<E> T, Position<E> v){
+        if (isRoot(v)){
+            return 0;
+        }else{
+            return 1 + depth(T,parent(v));
+        }
+    }
+
+    public void drawTree(LinkedBinaryTree T,BTPosition v,int visitedNodes){
+        BTPosition u = v.getLeft();
+        BTPosition w = v.getRight();
+        if(u != null) {
+            drawTree(T, u,visitedNodes);
+        }
+        int depth = (int) T.depth(T,v);
+        System.out.print(v.element() + " - ( " + visitedNodes + ", " + depth + " ) ");
+        visitedNodes++;
+        if(w != null){
+            drawTree(T,w,visitedNodes);
+        }
+    }
+
 }
 
 

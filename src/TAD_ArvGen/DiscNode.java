@@ -3,16 +3,16 @@ package TAD_ArvGen;
 import position.Position;
 import position.PositionList;
 
-
-public class TreeNode<E> implements TreePosition<E> {
+public class DiscNode<E> implements TreePosition<E>{
     private E element;
     private TreePosition<E> parent;
     private PositionList<Position<E>> children;
+    private String name;
+    private int kbytes;
 
+    public DiscNode() {}
 
-    public TreeNode() {}
-
-    public TreeNode(E element, TreePosition<E> parent, PositionList<Position<E>> children) {
+    public DiscNode(E element, TreePosition<E> parent, PositionList<Position<E>> children) {
         setElement(element);
         setParent(parent);
         setChildren(children);
@@ -32,5 +32,11 @@ public class TreeNode<E> implements TreePosition<E> {
 
     public void setParent(TreePosition<E> v) { parent = v; }
 
-}
+    public int getKbytes() { return kbytes; }
 
+    public void setKbytes(int kb) { kbytes = kb; }
+
+    public String getName() { return name; }
+
+    public void setName(String nm) { name = nm; }
+}
