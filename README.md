@@ -7,4 +7,4 @@ Respostas da Primeira questão:
 1 e) "notas" e "programa/" 
 1 f) "projetos/", "trabalhos/, "compre baixo", "venda alto", "demos/", "mercado"
 1 g) A profundidade é 3
-1 h) A altura da árvore é 5
+1 h) A altura da árvore é 4
