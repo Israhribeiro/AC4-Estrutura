@@ -24,7 +24,7 @@ public class LinkedBinaryTreeTest {
 
         System.out.println();
 
-        T.binaryPosOrder(T,(BTPosition) T.root());
+        T.binaryPostOrder(T,(BTPosition) T.root());
 
         System.out.println();
 

@@ -243,12 +243,12 @@ public class LinkedBinaryTree<E> implements BinaryTree<E> {
         }
     }
 
-    public void binaryPosOrder(LinkedBinaryTree T,BTPosition v){
+    public void binaryPostOrder(LinkedBinaryTree T,BTPosition v){
         if(T.hasLeft(v)){
-            binaryPreOrder(T,v.getLeft());
+            binaryPostOrder(T,v.getLeft());
         }
         if(T.hasRight(v)){
-            binaryPreOrder(T,v.getRight());
+            binaryPostOrder(T,v.getRight());
         }
         System.out.print(v.element());
     }
