@@ -285,15 +285,13 @@ public class LinkedBinaryTree<E> implements BinaryTree<E> {
     }
 
     public void eulerTour(LinkedBinaryTree T,BTPosition v){
-        BTPosition u = v.getLeft();
-        BTPosition w = v.getRight();
         System.out.print(v.element());
-        if(u != null) {
-            eulerTour(T, u);
+        if(T.hasLeft(v)) {
+            eulerTour(T, v.getLeft());
         }
         System.out.print(v.element());
-        if(w != null){
-            eulerTour(T,w);
+        if(T.hasRight(v)){
+            eulerTour(T,v.getRight());
         }
         System.out.print(v.element());
     }
@@ -338,11 +336,51 @@ public class LinkedBinaryTree<E> implements BinaryTree<E> {
             drawTree(T, u,visitedNodes);
         }
         int depth = (int) T.depth(T,v);
-        System.out.print(v.element() + " - ( " + visitedNodes + ", " + depth + " ) ");
+        System.out.print("\"" + v.element() + "\" - ( " + visitedNodes + ", " + depth + " ) ");
         visitedNodes++;
         if(w != null){
             drawTree(T,w,visitedNodes);
         }
+    }
+
+    public void makerBTSearch(LinkedBinaryTree T,BTPosition v){
+        if(T.hasLeft(v)){
+            makerBTSearch(T,v.getLeft());
+        }
+        if(isInternal(v)){
+            System.out.print(v.element() + ",");
+        }
+        if(T.hasRight(v)){
+            makerBTSearch(T,v.getRight());
+        }
+    }
+
+    public int countLeft(LinkedBinaryTree T,BTPosition v,int numLefts){
+        if(T.hasRight(v)){
+            numLefts = countLeft(T,v.getRight(),numLefts);
+        }
+        if(T.hasLeft(v)){
+            if(!T.isInternal(v.getLeft())){
+                numLefts = countLeft(T,v.getLeft(),numLefts + 1);
+            }else{
+                numLefts = countLeft(T,v.getLeft(),numLefts);
+            }
+        }
+        return numLefts;
+    }
+
+    public int countRight(LinkedBinaryTree T,BTPosition v,int numLefts){
+        if(T.hasLeft(v)){
+            numLefts = countRight(T,v.getLeft(),numLefts);
+        }
+        if(T.hasRight(v)){
+            if(!T.isInternal(v.getRight())){
+                numLefts = countRight(T,v.getRight(),numLefts + 1);
+            }else{
+                numLefts = countRight(T,v.getRight(),numLefts);
+            }
+        }
+        return numLefts;
     }
 
 }
