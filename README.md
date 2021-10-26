@@ -17,72 +17,73 @@ Questões:
   ![Arvore](arvore.png)
 
 
-    a) Qual nodo é a raiz?
-        R: "/usuário/rt/cursos/"
+      a) Qual nodo é a raiz?
+          R: "/usuário/rt/cursos/"
 
-    b) Quais são os nodos internos?
-        R: "cs016/", "temas/", "programas/", "cs252/", "projetos/", "trabalhos/", "demos/"
-        
-    c) Quantos descendentes tem o nodo cs016/?
-        R: "cs016/" tem 9 descendentes, sendo eles: "cs016/", "temas/", "hw1", "hw2", "hw3", "programas/", "pr1", "pr2", "pr3"
+      b) Quais são os nodos internos?
+          R: "cs016/", "temas/", "programas/", "cs252/", "projetos/", "trabalhos/", "demos/"
 
-    d) Quantos ancestrais tem o nodo cs016/?
-        R: "cs016/" tem 1 ancestral, sendo ele "/usuário/rt/cursos/"
+      c) Quantos descendentes tem o nodo cs016/?
+          R: "cs016/" tem 9 descendentes, sendo eles: "cs016/", "temas/", "hw1", "hw2", "hw3", "programas/", "pr1", "pr2", "pr3"
 
-    e) Quais são os irmãos do nodo temas/?
-        R: "notas" e "programa/" 
+      d) Quantos ancestrais tem o nodo cs016/?
+          R: "cs016/" tem 1 ancestral, sendo ele "/usuário/rt/cursos/"
 
-    f) Que nodos pertencem à subárvore com raiz no nodo projetos/?
-        R: "projetos/", "trabalhos/, "compre baixo", "venda alto", "demos/", "mercado"
+      e) Quais são os irmãos do nodo temas/?
+          R: "notas" e "programa/" 
 
-    g) Qual é a profundidade do nodo trabalhos/ ?
-        R: A profundidade é 3 1
+      f) Que nodos pertencem à subárvore com raiz no nodo projetos/?
+          R: "projetos/", "trabalhos/, "compre baixo", "venda alto", "demos/", "mercado"
 
-    h) Qual a altura da árvore?
-        R: A altura da árvore
+      g) Qual é a profundidade do nodo trabalhos/ ?
+          R: A profundidade é 3 1
+
+      h) Qual a altura da árvore?
+          R: A altura da árvore
 
 - [x] 2 Implementação e teste da Árvore Genérica conforme os slides de 23 a 33.
 
 - [x] 3 Incrementar a implementação e teste de LinkedTree<E> com os seguintes métodos:
 
 
-    a) parentheticRepresentation conforme o algoritmo do slide 55.
+      a) parentheticRepresentation conforme o algoritmo do slide 55.
 
-    b) Com base no algoritmo posorder (slide 57) crie o método toStringPostorder (imprime os valores dos nodes visitados).
+      b) Com base no algoritmo posorder (slide 57) crie o método toStringPostorder (imprime os valores dos nodes visitados).
 
-    c) diskSpace conforme o algoritmo do slide 80.
+      c) diskSpace conforme o algoritmo do slide 80.
 
-    d)depth conforme o algoritmo do slide 84.
+      d)depth conforme o algoritmo do slide 84.
 
-    e)height1 conforme o algoritmo do slide 90.
+      e)height1 conforme o algoritmo do slide 90.
 
-    f)height2 conforme o algoritmo do slide 103.
+      f)height2 conforme o algoritmo do slide 103.
 
 - [x] 4 Implemente e teste o TAD Árvore Binária conforme slides de 15 a 26
 
 
 - [ ] 5 Incremente a implementação e teste do TAD Árvore Binária com:
-  a) buildExpression conforme slide 30.
+  
+      a) buildExpression conforme slide 30.
 
-  b) binaryPreorder conforme slide 31.
+      b) binaryPreorder conforme slide 31.
 
-  c) binaryPostorder conforme slide 32.
+      c) binaryPostorder conforme slide 32.
 
-  d) evaluateExpression conforme slide 34 a 42.
+      d) evaluateExpression conforme slide 34 a 42.
 
-  e) inorder conforme slide 43.
+      e) inorder conforme slide 43.
 
-  f) makerBTSearch e exiba o seu caminhamento inorder conforme slide 45.
+      f) makerBTSearch e exiba o seu caminhamento inorder conforme slide 45.
 
-  g) Método que desenhe a árvore binária de expressão conforme slide 47.
+      g) Método que desenhe a árvore binária de expressão conforme slide 47.
 
-  h) eulerTour conforme slide 51.
+      h) eulerTour conforme slide 51.
 
-  i) printExpression conforme slide 53.
+      i) printExpression conforme slide 53.
 
-  j) Método para contar os nodos esquerdos e externos de uma árvore binária.
+      j) Método para contar os nodos esquerdos e externos de uma árvore binária.
 
-  k) Método para contar os nodos direitos e externos de uma árvore binária.
+      k) Método para contar os nodos direitos e externos de uma árvore binária.
 
 
 - [ ]  6 Desenhe uma árvore binária que represente a seguinte expressão aritmética:
