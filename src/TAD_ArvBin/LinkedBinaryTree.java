@@ -234,25 +234,21 @@ public class LinkedBinaryTree<E> implements BinaryTree<E> {
     }
 
     public void binaryPreOrder(LinkedBinaryTree T,BTPosition v){
-        BTPosition u = v.getLeft();
-        BTPosition w = v.getRight();
         System.out.print(v.element());
-        if(u != null){
-            binaryPreOrder(T,u);
+        if(T.hasLeft(v)){
+            binaryPreOrder(T,v.getLeft());
         }
-        if(w != null){
-            binaryPreOrder(T,u);
+        if(T.hasRight(v)){
+            binaryPreOrder(T,v.getRight());
         }
     }
 
     public void binaryPosOrder(LinkedBinaryTree T,BTPosition v){
-        BTPosition u = v.getLeft();
-        BTPosition w = v.getRight();
-        if(u != null){
-            binaryPreOrder(T,u);
+        if(T.hasLeft(v)){
+            binaryPreOrder(T,v.getLeft());
         }
-        if(w != null){
-            binaryPreOrder(T,u);
+        if(T.hasRight(v)){
+            binaryPreOrder(T,v.getRight());
         }
         System.out.print(v.element());
     }
