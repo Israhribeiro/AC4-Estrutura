@@ -36,10 +36,10 @@ Questões:
           R: "projetos/", "trabalhos/, "compre baixo", "venda alto", "demos/", "mercado"
 
       g) Qual é a profundidade do nodo trabalhos/ ?
-          R: A profundidade é 3 1
+          R: A profundidade é 3
 
       h) Qual a altura da árvore?
-          R: A altura da árvore
+          R: A altura da árvore é 4
 
 - [x] 2 Implementação e teste da Árvore Genérica conforme os slides de 23 a 33.
 
