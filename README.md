@@ -61,7 +61,7 @@ Questões:
 - [x] 4 Implemente e teste o TAD Árvore Binária conforme slides de 15 a 26
 
 
-- [ ] 5 Incremente a implementação e teste do TAD Árvore Binária com:
+- [x] 5 Incremente a implementação e teste do TAD Árvore Binária com:
   
       a) buildExpression conforme slide 30.
 
@@ -86,5 +86,6 @@ Questões:
       k) Método para contar os nodos direitos e externos de uma árvore binária.
 
 
-- [ ]  6 Desenhe uma árvore binária que represente a seguinte expressão aritmética:
+- [x]  6 Desenhe uma árvore binária que represente a seguinte expressão aritmética:
   “(((5+2)*(2-1))/((2+9)+(7-2)-1)*8)”.
+  ![Arvore](expressao.png)
